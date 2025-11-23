@@ -23,7 +23,7 @@ repository               : "lucas-rbnt/lucas-rbnt.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "avatar.jpg"
   name             : "Lucas Robinet"
   pronouns         : # example: "she/her"  
   bio              : "Trying to understand cancer, one dot product at a time 🦀"
@@ -58,7 +58,7 @@ author:
   facebook         : # Username
   flickr           : # Username
   foursquare       : # Username
-  goodreads        : # Username
+  goodreads        : 188040309-lucas-robinet
   google_plus      : # Username
   keybase          : # Username
   instagram        : # Username
