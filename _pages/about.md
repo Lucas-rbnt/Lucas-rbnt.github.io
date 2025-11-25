@@ -10,7 +10,7 @@ redirect_from:
 
 Hi there,
 
-I'm a PhD student at [Oncopole Claudius Regaud](https://www.iuct-oncopole.fr/) and [IRT Saint Exupéry](https://www.irt-saintexupery.com/), working at the intersection of multimodal deep learning and oncology. My work focuses on self-supervised learning, multimodal modeling, and flexible architectures capable of reasoning across histopathology, radiology, and omics-even when data is incomplete.
+I'm a PhD student at [Oncopole Claudius Regaud](https://www.iuct-oncopole.fr/) and [IRT Saint Exupéry](https://www.irt-saintexupery.com/), working at the intersection of multimodal deep learning and oncology. My work focuses on self-supervised learning, multimodal modeling, and flexible architectures capable of reasoning across radiology, histopathology, and omics modalities. 
 
 Before starting my PhD, I worked on deep learning for satellite imagery and built large-scale training pipelines at Airbus Defence & Space.
 I hold an MSc in Machine Learning from [ISAE Supaero](https://www.isae-supaero.fr/en/) and an MSc in Applied Mathematics & Operations Research from [Université de Toulouse](https://www.univ-tlse3.fr/).
