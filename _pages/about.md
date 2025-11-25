@@ -18,7 +18,6 @@ I hold an MSc in Machine Learning from [ISAE Supaero](https://www.isae-supaero.f
 
 I support open science and value maximum transparency.
 
-
 ## 🔬 Research Focus
 
 Interested in multimodal self-supervised learning and in developing novel computational paradigms for oncology. The overarching goal is to design models that integrate heterogeneous biomedical data in order to uncover underlying biological mechanisms and advance our understanding of cancer.
@@ -30,17 +29,11 @@ Interested in multimodal self-supervised learning and in developing novel comput
 - **🧲 Physics-informed neural networks**
 - **🧠 Deformable image registration**
 
-<br>
-
 ## 💻 Open-source contributions
-
 
 * **[MONAI - Medical Open Network for AI](https://github.com/Project-MONAI/MONAI)** <br> Contributions revolve around masked modeling, attention layers, transformer blocks and self-supervised learning
 
-<br>
-
 ## 🌳 Outside the lab
-
 
 - **📚 Reading** - science, philosophy, and litterature (basically anything that hijacks my curiosity)
 - **⚽ Sports** - football lover (Olympique de Marseille), ski enthusiast
