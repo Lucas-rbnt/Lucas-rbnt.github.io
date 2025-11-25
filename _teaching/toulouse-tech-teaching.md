@@ -1,20 +1,30 @@
 ---
-title: "Introduction to Machine Learning"
+title: "Machine Learning & Deep Learning"
 collection: teaching
 type: "MSc course"
 permalink: /teaching/toulouse-tech-teaching
 venue: "Toulouse Tech"
-date: 2022-2023
+date: 2023-01-01
 location: "Toulouse, France"
 ---
 
-This is a description of a teaching experience. You can use markdown like any other post.
+Introductory Machine Learning and Deep Learning lectures with hands-on practice, delivered as part of the Big Data Certificate for voluntary students from several engineering schools in Toulouse.
 
-Heading 1
-======
 
-Heading 2
+Machine Learning 
 ======
+* Core supervised models - linear/logistic regression, SVM, trees, ensembles
+* Unsupervised techniques - clustering, dimensionality reduction
+* Model evaluation, validation, metrics
 
-Heading 3
+Deep Learning
 ======
+- Fully Connected Neural networks
+- Backpropagation principles
+- Convolutional Neural Networks
+
+Hackathon
+======
+- Team-based applied ML/DL project
+- End-to-end pipeline design and experimentation
+- Presentation of results and model insights
