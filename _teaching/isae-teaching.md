@@ -1,5 +1,5 @@
 ---
-title: "Machine Learning & Deep Learning"
+title: "Introduction to Machine Learning and Deep Learning"
 collection: teaching
 type: "MSc course"
 permalink: /teaching/isae-teaching
