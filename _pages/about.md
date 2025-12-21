@@ -15,7 +15,7 @@ I'm a PhD student at [Oncopole Claudius Regaud](https://www.iuct-oncopole.fr/) a
 Before starting my PhD, I worked on deep learning for satellite imagery and built large-scale training pipelines at Airbus Defence & Space.
 I also hold an MSc in Machine Learning from [ISAE Supaero](https://www.isae-supaero.fr/en/) and an MSc in Applied Mathematics & Operations Research from [Université de Toulouse](https://www.univ-tlse3.fr/).
 
-I support open science and value maximum transparency.
+I support open science.
 
 ## 🔬 Research Focus
 
