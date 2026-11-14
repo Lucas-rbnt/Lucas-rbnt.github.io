@@ -1,0 +1,22 @@
+{% assign p = include.paper %}
+{% assign fig = p.figure | default: "default" %}
+<article class="paper reveal">
+  <a class="paper__fig" href="{{ p.url | relative_url }}" aria-label="{{ p.title | strip_html }}">
+    {% include figures/{{ fig }}.html %}
+  </a>
+  <div class="paper__body">
+    <p class="paper__meta mono">
+      <span class="tag">{{ p.venue }}</span>
+      <time datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: "%Y" }}</time>
+    </p>
+    <h3 class="paper__title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
+    {% if p.authors %}<p class="paper__authors">{{ p.authors | replace: "Lucas Robinet", "<b>Lucas Robinet</b>" }}</p>{% endif %}
+    {% if p.tldr %}<p class="paper__tldr"><span class="mono">tl;dr</span> {{ p.tldr }}</p>{% endif %}
+    <p class="paper__links mono">
+      {% if p.paperurl %}<a href="{{ p.paperurl }}">[paper]</a>{% endif %}
+      {% if p.codeurl %}<a href="{{ p.codeurl }}">[code]</a>{% endif %}
+      {% if p.slidesurl %}<a href="{{ p.slidesurl }}">[slides]</a>{% endif %}
+      {% if p.bibtexurl %}<a href="{{ p.bibtexurl }}">[bibtex]</a>{% endif %}
+    </p>
+  </div>
+</article>

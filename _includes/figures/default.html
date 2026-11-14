@@ -1,0 +1,31 @@
+{%- comment -%}
+  Fallback figure: a small MLP with signals propagating forward.
+{%- endcomment -%}
+{%- assign l0 = "40,75,110" | split: "," -%}
+{%- assign l1 = "25,58,92,125" | split: "," -%}
+{%- assign l2 = "55,95" | split: "," -%}
+<figure class="fig fig--net" aria-hidden="true">
+  <svg viewBox="0 0 240 150" role="img">
+    {%- for a in l0 -%}{%- for b in l1 -%}
+      <path id="nt-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}" class="link" d="M50 {{ a }} L120 {{ b }}"/>
+    {%- endfor -%}{%- endfor -%}
+    {%- for a in l1 -%}{%- for b in l2 -%}
+      <path id="nu-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}" class="link" d="M120 {{ a }} L190 {{ b }}"/>
+    {%- endfor -%}{%- endfor -%}
+
+    {%- for i in (0..3) -%}
+      {%- assign s = i | modulo: 3 -%}{%- assign t = i | times: 3 | modulo: 4 -%}
+      {%- assign c = "rad,his,omi,rad" | split: "," -%}
+      <circle r="2" class="tok f-{{ c[i] }}">
+        <animateMotion dur="1.2s" begin="{{ i | times: 0.6 }}s" repeatCount="indefinite"><mpath href="#nt-{{ s }}-{{ t }}"/></animateMotion>
+      </circle>
+      <circle r="2" class="tok f-{{ c[i] }}">
+        <animateMotion dur="1.2s" begin="{{ i | times: 0.6 | plus: 1.2 }}s" repeatCount="indefinite"><mpath href="#nu-{{ t }}-{{ i | modulo: 2 }}"/></animateMotion>
+      </circle>
+    {%- endfor -%}
+
+    {%- for a in l0 -%}<circle cx="50" cy="{{ a }}" r="6" class="node node--in"/>{%- endfor -%}
+    {%- for a in l1 -%}<circle cx="120" cy="{{ a }}" r="6" class="node node--h" style="--d:{{ forloop.index0 | times: 0.3 }}s"/>{%- endfor -%}
+    {%- for a in l2 -%}<circle cx="190" cy="{{ a }}" r="6" class="node node--out" style="--d:{{ forloop.index0 | times: 0.4 | plus: 0.6 }}s"/>{%- endfor -%}
+  </svg>
+</figure>

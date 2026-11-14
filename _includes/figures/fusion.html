@@ -1,0 +1,39 @@
+{%- comment -%}
+  Multimodal fusion / alignment: three modality nodes stream tokens into a
+  shared embedding space where their codes orbit together.
+{%- endcomment -%}
+<figure class="fig fig--fusion" aria-hidden="true">
+  <svg viewBox="0 0 240 150" role="img">
+    <path id="fu-rad" class="link" d="M36 30 Q80 30 120 75"/>
+    <path id="fu-his" class="link" d="M36 120 Q80 120 120 75"/>
+    <path id="fu-omi" class="link" d="M206 75 Q170 40 120 75"/>
+
+    <circle cx="36" cy="30" r="9" class="node f-rad"/>
+    <circle cx="36" cy="120" r="9" class="node f-his"/>
+    <circle cx="206" cy="75" r="9" class="node f-omi"/>
+    <text x="36" y="51" class="fig-txt" text-anchor="middle">CT</text>
+    <text x="36" y="142" class="fig-txt" text-anchor="middle">WSI</text>
+    <text x="206" y="96" class="fig-txt" text-anchor="middle">RNA</text>
+
+    {%- assign mods = "rad,his,omi" | split: "," -%}
+    {%- for m in mods -%}
+      {%- for k in (0..2) -%}
+        <circle r="2.2" class="f-{{ m }} tok">
+          <animateMotion dur="2.4s" begin="{{ k | times: 0.8 | plus: forloop.parentloop.index0 | times: 1 }}s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines=".4 0 .6 1">
+            <mpath href="#fu-{{ m }}"/>
+          </animateMotion>
+        </circle>
+      {%- endfor -%}
+    {%- endfor -%}
+
+    <g class="space">
+      <circle cx="120" cy="75" r="26" class="space__ring"/>
+      <g class="orbit">
+        <circle cx="120" cy="64" r="3.5" class="f-rad"/>
+        <circle cx="129.5" cy="80.5" r="3.5" class="f-his"/>
+        <circle cx="110.5" cy="80.5" r="3.5" class="f-omi"/>
+      </g>
+      <text x="120" y="114" class="fig-txt" text-anchor="middle">joint z</text>
+    </g>
+  </svg>
+</figure>

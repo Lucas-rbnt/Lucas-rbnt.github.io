@@ -1,12 +1,27 @@
 ---
-layout: archive
+layout: base
 title: "Teaching"
 permalink: /teaching/
-author_profile: true
 ---
+<div class="wrap page">
+  <header class="page__head reveal">
+    <p class="label">// teaching</p>
+    <h1 class="page__title">Teaching</h1>
+    <p class="page__lede">Machine learning and deep learning courses, from linear regression to backprop.</p>
+  </header>
 
-{% include base_path %}
-
-{% for post in site.teaching reversed %}
-  {% include archive-single.html %}
-{% endfor %}
+  <ol class="timeline">
+    {% assign items = site.teaching | sort: "date" | reverse %}
+    {% for t in items %}
+      <li class="timeline__item reveal">
+        <span class="timeline__when mono">{{ t.date | date: "%Y" }}</span>
+        <a class="timeline__card" href="{{ t.url | relative_url }}">
+          <span class="tag mono">{{ t.type }}</span>
+          <h2>{{ t.title }}</h2>
+          <p class="mono timeline__where">{{ t.venue }} · {{ t.location }}</p>
+          <p>{{ t.excerpt | strip_html | truncatewords: 30 }}</p>
+        </a>
+      </li>
+    {% endfor %}
+  </ol>
+</div>

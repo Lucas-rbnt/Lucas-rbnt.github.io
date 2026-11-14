@@ -1,0 +1,31 @@
+{%- comment -%}
+  Masked modelling: patches of a "tissue" grid get masked and reconstructed,
+  while the training loss draws itself on the right.
+{%- endcomment -%}
+<figure class="fig fig--masked" aria-hidden="true">
+  <svg viewBox="0 0 240 150" role="img">
+    <g class="grid">
+      {%- for r in (0..5) -%}
+        {%- for c in (0..5) -%}
+          {%- assign i = r | times: 6 | plus: c -%}
+          {%- assign o = i | times: 7 | modulo: 10 | times: 0.06 | plus: 0.35 -%}
+          {%- assign d = i | times: 37 | modulo: 29 | times: 0.2 -%}
+          {%- assign x = c | times: 18 | plus: 12 -%}
+          {%- assign y = r | times: 18 | plus: 21 -%}
+          {%- assign m = i | modulo: 5 -%}
+          <rect class="patch {% if m == 0 %}f-rad{% elsif m == 2 %}f-omi{% else %}f-his{% endif %}" x="{{ x }}" y="{{ y }}" width="15" height="15" rx="2" style="--o:{{ o }};--d:{{ d }}s"/>
+        {%- endfor -%}
+      {%- endfor -%}
+    </g>
+
+    <text x="66" y="142" class="fig-txt" text-anchor="middle">mask 75% → reconstruct</text>
+
+    <!-- loss curve -->
+    <path class="axis" d="M142 24 L142 124 L228 124"/>
+    <text x="146" y="22" class="fig-txt">loss</text>
+    <text x="228" y="135" class="fig-txt" text-anchor="end">epoch</text>
+    <path class="loss s-rad" pathLength="100"
+          d="M144 32 C152 70 158 84 170 92 S192 104 204 108 S220 112 228 113"/>
+    <circle class="loss-dot f-rad" r="2.6" cx="228" cy="113"/>
+  </svg>
+</figure>

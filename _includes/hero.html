@@ -1,0 +1,30 @@
+<section class="hero" aria-label="Introduction">
+  <canvas id="latent" class="hero__canvas" aria-hidden="true"></canvas>
+
+  <div class="wrap hero__inner">
+    <p class="hero__kicker mono">PhD student · {{ site.author.location }}</p>
+    <h1 class="hero__name">Lucas<br><span>Robinet</span></h1>
+
+    <div class="term" role="group" aria-label="Terminal">
+      <div class="term__bar" aria-hidden="true"><i></i><i></i><i></i><span>zsh — lucas@oncopole</span></div>
+      <div class="term__body mono">
+        <p><span class="term__ps">$</span> whoami</p>
+        <p class="term__out">
+          <span class="term__arrow" aria-hidden="true">→</span>
+          <span id="typed" data-lines='{{ site.taglines | jsonify | escape }}'>{{ site.taglines | first }}</span><span class="term__caret" aria-hidden="true"></span>
+        </p>
+      </div>
+    </div>
+
+    <div class="hero__foot">
+      <ul class="legend mono" aria-label="Point colours">
+        <li><i class="dot dot--rad"></i>radiology</li>
+        <li><i class="dot dot--his"></i>histopathology</li>
+        <li><i class="dot dot--omi"></i>omics</li>
+      </ul>
+      {% include socials.html %}
+    </div>
+  </div>
+
+  <a class="hero__scroll mono" href="#about" aria-label="Scroll to content">scroll ↓</a>
+</section>

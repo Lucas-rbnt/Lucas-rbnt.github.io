@@ -1,0 +1,39 @@
+---
+layout: base
+---
+<article class="wrap page">
+  <header class="page__head reveal">
+    {% if page.collection == "publications" %}
+      <p class="label"><a href="{{ '/publications/' | relative_url }}">// publications</a></p>
+    {% elsif page.collection == "teaching" %}
+      <p class="label"><a href="{{ '/teaching/' | relative_url }}">// teaching</a></p>
+    {% elsif page.label %}
+      <p class="label">{{ page.label }}</p>
+    {% endif %}
+    <h1 class="page__title">{{ page.title }}</h1>
+    {% if page.collection == "teaching" %}
+      <p class="page__meta mono"><span class="tag">{{ page.type }}</span> {{ page.venue }} · {{ page.location }}</p>
+    {% elsif page.collection == "publications" %}
+      <p class="page__meta mono"><span class="tag">{{ page.venue }}</span> {{ page.date | date: "%Y" }}</p>
+      {% if page.authors %}<p class="paper__authors">{{ page.authors | replace: "Lucas Robinet", "<b>Lucas Robinet</b>" }}</p>{% endif %}
+    {% endif %}
+  </header>
+
+  {% if page.collection == "publications" %}
+    {% assign fig = page.figure | default: "default" %}
+    <div class="page__fig reveal">{% include figures/{{ fig }}.html %}</div>
+  {% endif %}
+
+  <div class="prose reveal">
+    {{ content }}
+  </div>
+
+  {% if page.collection == "publications" %}
+    <p class="paper__links mono">
+      {% if page.paperurl %}<a href="{{ page.paperurl }}">[paper]</a>{% endif %}
+      {% if page.codeurl %}<a href="{{ page.codeurl }}">[code]</a>{% endif %}
+      {% if page.slidesurl %}<a href="{{ page.slidesurl }}">[slides]</a>{% endif %}
+      {% if page.bibtexurl %}<a href="{{ page.bibtexurl }}">[bibtex]</a>{% endif %}
+    </p>
+  {% endif %}
+</article>
