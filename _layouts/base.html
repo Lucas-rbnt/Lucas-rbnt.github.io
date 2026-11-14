@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,14 +21,11 @@
   {% feed_meta %}
 
   <script>
-    /* set theme before paint to avoid a flash */
-    (function () {
-      document.documentElement.classList.add('js');
-      try {
-        var t = localStorage.getItem('theme');
-        if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
-      } catch (e) {}
-    })();
+    /* Runs before the page paints: restore the visitor's saved theme (dark by default). */
+    document.documentElement.classList.add('js');
+    try {
+      if (localStorage.getItem('theme') === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    } catch (e) {}
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
