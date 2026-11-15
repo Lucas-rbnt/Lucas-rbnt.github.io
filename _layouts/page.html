@@ -14,7 +14,7 @@ layout: base
     {% if page.collection == "teaching" %}
       <p class="page__meta mono"><span class="tag">{{ page.type }}</span> {{ page.venue }} · {{ page.location }}</p>
     {% elsif page.collection == "publications" %}
-      <p class="page__meta mono"><span class="tag">{{ page.venue }}</span> {{ page.date | date: "%Y" }}</p>
+      <p class="page__meta mono">{% if page.short %}<span class="tag tag--name">{{ page.short }}</span>{% endif %}<span class="tag">{{ page.venue }}</span> {{ page.date | date: "%Y" }}</p>
       {% if page.authors %}<p class="paper__authors">{{ page.authors | replace: "Lucas Robinet", "<b>Lucas Robinet</b>" }}</p>{% endif %}
     {% endif %}
   </header>

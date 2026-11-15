@@ -1,0 +1,77 @@
+{%- comment -%}
+  BM-MAE: four 3D MRI sequences -> ViT encoder -> token grid (one row per sequence).
+  Some tokens are masked and reconstructed; T2 periodically goes missing and is imputed.
+{%- endcomment -%}
+<figure class="fig fig--bmmae" aria-hidden="true">
+  <svg viewBox="0 0 240 150" role="img">
+    <!-- MRI sequences: skewed slabs to suggest 3D volumes -->
+    <text x="6" y="27" class="fig-txt">T1</text>
+    <g transform="translate(34 14) skewX(-15)">
+      <rect width="44" height="22" rx="3" class="slab"/>
+      <ellipse cx="22" cy="11" rx="14" ry="8" class="slab-brain"/>
+      <circle cx="27" cy="9" r="2.5" class="f-his"/>
+    </g>
+
+    <text x="6" y="57" class="fig-txt">T1c</text>
+    <g transform="translate(34 44) skewX(-15)">
+      <rect width="44" height="22" rx="3" class="slab"/>
+      <ellipse cx="22" cy="11" rx="14" ry="8" class="slab-brain"/>
+      <circle cx="27" cy="9" r="3.5" class="f-his"/>
+    </g>
+
+    <text x="6" y="87" class="fig-txt row-miss">T2</text>
+    <g transform="translate(34 74) skewX(-15)" class="row-miss">
+      <rect width="44" height="22" rx="3" class="slab"/>
+      <ellipse cx="22" cy="11" rx="14" ry="8" class="slab-brain"/>
+      <circle cx="27" cy="9" r="3" class="f-his"/>
+    </g>
+
+    <text x="6" y="117" class="fig-txt">FLAIR</text>
+    <g transform="translate(34 104) skewX(-15)">
+      <rect width="44" height="22" rx="3" class="slab"/>
+      <ellipse cx="22" cy="11" rx="14" ry="8" class="slab-brain"/>
+      <circle cx="27" cy="9" r="4.5" class="f-his" opacity=".7"/>
+    </g>
+
+    <!-- into the encoder -->
+    <path class="flow s-rad" d="M84 25 C100 25 100 60 112 66"/>
+    <path class="flow s-rad" d="M84 55 L112 70"/>
+    <path class="flow s-rad row-miss" d="M84 85 L112 80"/>
+    <path class="flow s-rad" d="M84 115 C100 115 100 90 112 84"/>
+    <path class="enc" d="M112 46 L138 58 L138 92 L112 104 Z"/>
+    <text x="125" y="78" class="fig-txt" text-anchor="middle">ViT</text>
+    <path class="flow s-ink" d="M138 75 L148 75"/>
+
+    <!-- tokens: one row per sequence; .patch = masked then reconstructed -->
+    <g class="f-rad">
+      <rect x="152" y="18" width="14" height="14" rx="2" class="patch" style="--o:.9;--d:0s"/>
+      <rect x="169" y="18" width="14" height="14" rx="2" opacity=".6"/>
+      <rect x="186" y="18" width="14" height="14" rx="2" class="patch" style="--o:.75;--d:1.4s"/>
+      <rect x="203" y="18" width="14" height="14" rx="2" opacity=".85"/>
+
+      <rect x="152" y="48" width="14" height="14" rx="2" opacity=".7"/>
+      <rect x="169" y="48" width="14" height="14" rx="2" class="patch" style="--o:.9;--d:.7s"/>
+      <rect x="186" y="48" width="14" height="14" rx="2" opacity=".55"/>
+      <rect x="203" y="48" width="14" height="14" rx="2" class="patch" style="--o:.8;--d:2.1s"/>
+    </g>
+
+    <!-- T2 row: missing, then imputed -->
+    <g class="f-rad">
+      <rect x="152" y="78" width="14" height="14" rx="2" class="tok-miss"/>
+      <rect x="169" y="78" width="14" height="14" rx="2" class="tok-miss"/>
+      <rect x="186" y="78" width="14" height="14" rx="2" class="tok-miss"/>
+      <rect x="203" y="78" width="14" height="14" rx="2" class="tok-miss"/>
+    </g>
+    <rect x="152.5" y="78.5" width="64" height="13" rx="2" class="bar-ghost s-rad"/>
+    <text x="222" y="88" class="fig-txt fig-txt--imp">imputed</text>
+
+    <g class="f-rad">
+      <rect x="152" y="108" width="14" height="14" rx="2" opacity=".8"/>
+      <rect x="169" y="108" width="14" height="14" rx="2" class="patch" style="--o:.65;--d:2.8s"/>
+      <rect x="186" y="108" width="14" height="14" rx="2" opacity=".9"/>
+      <rect x="203" y="108" width="14" height="14" rx="2" class="patch" style="--o:.7;--d:.35s"/>
+    </g>
+
+    <text x="184" y="142" class="fig-txt" text-anchor="middle">mask → reconstruct</text>
+  </svg>
+</figure>

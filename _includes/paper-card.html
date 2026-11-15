@@ -6,6 +6,7 @@
   </a>
   <div class="paper__body">
     <p class="paper__meta mono">
+      {% if p.short %}<span class="tag tag--name">{{ p.short }}</span>{% endif %}
       <span class="tag">{{ p.venue }}</span>
       <time datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: "%Y" }}</time>
     </p>

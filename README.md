@@ -33,7 +33,7 @@ title: "Paper title"
 date: 2025-06-01
 venue: "MICCAI 2025"
 authors: "Lucas Robinet, A. Coauthor, B. Coauthor"
-figure: fusion          # disentangle | masked-patches | fusion | default
+figure: fusion          # disentangle | bm-mae | morpheus | masked-patches | fusion | default
 tldr: "One-line summary."
 paperurl: https://arxiv.org/abs/...
 codeurl: https://github.com/...

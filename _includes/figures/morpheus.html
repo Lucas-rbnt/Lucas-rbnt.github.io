@@ -1,0 +1,47 @@
+{%- comment -%}
+  MORPHEUS: a whole-slide image is tiled and scanned; through cross-attention the
+  model predicts masked genes of the expression profile (masked omics modeling).
+{%- endcomment -%}
+<figure class="fig fig--morpheus" aria-hidden="true">
+  <svg viewBox="0 0 240 150" role="img">
+    <!-- whole-slide image with H&E-ish tissue -->
+    <rect x="14" y="30" width="81" height="81" rx="6" class="wsi"/>
+    <ellipse cx="44" cy="58" rx="22" ry="16" class="f-his" opacity=".22"/>
+    <ellipse cx="66" cy="84" rx="20" ry="15" class="f-his" opacity=".18"/>
+    <circle cx="36" cy="54" r="2.4" class="f-hema"/>
+    <circle cx="46" cy="62" r="2" class="f-hema"/>
+    <circle cx="52" cy="50" r="2.2" class="f-hema"/>
+    <circle cx="62" cy="80" r="2.4" class="f-hema"/>
+    <circle cx="72" cy="88" r="2" class="f-hema"/>
+    <circle cx="58" cy="92" r="2.2" class="f-hema"/>
+    <circle cx="40" cy="70" r="1.8" class="f-hema"/>
+    <circle cx="76" cy="76" r="1.8" class="f-hema"/>
+    <!-- 3x3 tiles -->
+    <path class="grid-line" d="M41 30 V111 M68 30 V111 M14 57 H95 M14 84 H95"/>
+    <rect x="14" y="30" width="27" height="27" rx="2" class="scan"/>
+    <text x="54" y="124" class="fig-txt" text-anchor="middle">WSI tiles</text>
+
+    <!-- cross-attention -->
+    <path class="flow s-ink" d="M98 60 C120 60 124 70 142 72"/>
+    <path class="flow s-ink" d="M98 84 C120 84 124 78 142 76"/>
+    <text x="120" y="54" class="fig-txt" text-anchor="middle">cross-attn</text>
+
+    <!-- gene expression vector; .gene--m = masked then predicted -->
+    <path class="axis" d="M146 112 H230"/>
+    <g class="f-omi">
+      <rect class="gene"          x="148" y="70"  width="5" height="42" rx="1" style="--d:0s"/>
+      <rect class="gene gene--m"  x="155" y="84"  width="5" height="28" rx="1" style="--d:.2s"/>
+      <rect class="gene"          x="162" y="60"  width="5" height="52" rx="1" style="--d:.4s"/>
+      <rect class="gene"          x="169" y="92"  width="5" height="20" rx="1" style="--d:.6s"/>
+      <rect class="gene gene--m"  x="176" y="66"  width="5" height="46" rx="1" style="--d:.8s"/>
+      <rect class="gene"          x="183" y="80"  width="5" height="32" rx="1" style="--d:1s"/>
+      <rect class="gene"          x="190" y="96"  width="5" height="16" rx="1" style="--d:1.2s"/>
+      <rect class="gene gene--m"  x="197" y="74"  width="5" height="38" rx="1" style="--d:1.4s"/>
+      <rect class="gene"          x="204" y="56"  width="5" height="56" rx="1" style="--d:1.6s"/>
+      <rect class="gene"          x="211" y="88"  width="5" height="24" rx="1" style="--d:1.8s"/>
+      <rect class="gene gene--m"  x="218" y="78"  width="5" height="34" rx="1" style="--d:2s"/>
+      <rect class="gene"          x="225" y="90"  width="5" height="22" rx="1" style="--d:2.2s"/>
+    </g>
+    <text x="188" y="124" class="fig-txt" text-anchor="middle">RNA: [MASK] → predict</text>
+  </svg>
+</figure>
